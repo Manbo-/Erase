@@ -8,6 +8,13 @@
     Erase("hello", /l/) # => "heo"
     Erase("hello", /l/, once: true) # => "helo"
 
+    Erase.enable
+    "hello".erase(/e/) # => "hllo"
+
+    strings = "hello"
+    strings.erase!(/l/, once: true)
+    strings # => "helo"
+
 ## Contributing
 
 1. Fork it
