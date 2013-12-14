@@ -23,7 +23,9 @@ describe Erase do
   end
 
   context "included" do
-    class String; include Erase end
+    before do
+      Erase.enable
+    end
     
     it do
       expect("hello".erase(/h/, /o/)).to eq("ell")

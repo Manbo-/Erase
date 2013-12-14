@@ -3,6 +3,7 @@
 ## Usage
 
     require "erase"
+
     Erase("hello", /e/, /o/) # => "hll"
     Erase("hello", /l/) # => "heo"
     Erase("hello", /l/, once: true) # => "helo"
