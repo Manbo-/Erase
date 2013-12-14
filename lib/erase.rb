@@ -1,14 +1,14 @@
 require "active_support/all"
+
+require "erase/methods"
 require "erase/version"
 
-def Erase(strings, *patterns)
-  opts = patterns.extract_options!
-  method = opts[:once] ? :sub : :gsub
-  patterns.inject(strings) do |s, pattern|
-    s.send(method, pattern, "")
+module Erase
+  def erase(*patterns)
+    Erase(self, *patterns)
   end
-end
 
-def Erase!(strings, *patterns)
-  strings.replace(Erase(strings, *patterns))
+  def erase!(*patterns)
+    Erase!(self, *patterns)
+  end
 end

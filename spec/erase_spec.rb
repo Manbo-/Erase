@@ -21,4 +21,21 @@ describe Erase do
       expect{ Erase!(strings, /l/) }.to change{ strings }.to("heo")
     end
   end
+
+  context "included" do
+    class String; include Erase end
+    
+    it do
+      expect("hello".erase(/h/, /o/)).to eq("ell")
+    end
+      
+    it do
+      expect("hello".erase(/l/, once: true)).to eq("helo")
+    end
+
+    it do
+      strings = "hello"
+      expect{ strings.erase!(/h/, /e/) }.to change{ strings }.to("llo")
+    end
+  end
 end
