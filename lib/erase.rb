@@ -3,14 +3,9 @@ require "erase/version"
 
 def Erase(strings, *patterns)
   opts = patterns.extract_options!
-  if opts[:once]
-    patterns.inject(strings) do |s, pattern|
-      s.sub(pattern, "")
-    end
-  else
-    patterns.inject(strings) do |s, pattern|
-      s.gsub(pattern, "")
-    end
+  method = opts[:once] ? :sub : :gsub
+  patterns.inject(strings) do |s, pattern|
+    s.send(method, pattern, "")
   end
 end
 
