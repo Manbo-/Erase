@@ -13,3 +13,7 @@ def Erase(strings, *patterns)
     end
   end
 end
+
+def Erase!(strings, *patterns)
+  strings.replace(Erase(strings, *patterns))
+end
