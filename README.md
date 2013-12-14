@@ -1,24 +1,11 @@
 # Erase
 
-TODO: Write a gem description
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'erase'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install erase
-
 ## Usage
 
-TODO: Write usage instructions here
+    require "erase"
+    Erase("hello", /e/, /o/) # => "hll"
+    Erase("hello", /l/) # => "heo"
+    Erase("hello", /l/, once: true) # => "helo"
 
 ## Contributing
 
